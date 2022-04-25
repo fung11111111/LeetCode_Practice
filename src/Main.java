@@ -1,5 +1,8 @@
+import array.JumpGame;
 import array.ListNode;
+import array.ValidParentheses;
 import backTracking.LetterCombination;
+import backTracking.Permutations;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -32,11 +35,8 @@ public class Main {
     public static void main(String[] args) {
         Main m = new Main();
 
-        LetterCombination n = new LetterCombination();
-        List<String> output = n.letterCombinations("23");
-        for (String o : output) {
-            System.out.println(o);
-        }
+        JumpGame v = new JumpGame();
+        System.out.println(v.canJump(new int[]{5,9,3,2,1,0,2,3,3,1,0,0}));
 
 
     }
