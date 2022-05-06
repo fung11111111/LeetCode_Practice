@@ -1,12 +1,6 @@
-import array.JumpGame;
-import array.ListNode;
-import array.ValidParentheses;
-import backTracking.LetterCombination;
-import backTracking.Permutations;
-
-import java.math.BigInteger;
-import java.util.*;
-import java.util.stream.Collectors;
+import array.FirstMissingInt;
+import array.TrappingWater;
+import graph.ConstructGraph;
 
 public class Main {
     /**
@@ -35,18 +29,19 @@ public class Main {
     public static void main(String[] args) {
         Main m = new Main();
 
-        JumpGame v = new JumpGame();
-        System.out.println(v.canJump(new int[]{5,9,3,2,1,0,2,3,3,1,0,0}));
+//        ConstructGraph c = new ConstructGraph();
+//        ConstructGraph.Graph graph = c.createDirectedGraph();
+//
+//        ConstructGraph.Vertex root = c.createDirectedGraph().getVertexByLabel("a");
+//
+//       // c.bfs(root, graph);
+//        c.dfs(root, graph);
 
-
+        TrappingWater t = new TrappingWater();
+        int [] nums = {4,2,0,3,2,5};
+        System.out.println(t.trap(nums));
+z
     }
-
-
-
-
-
-
-
 
 
 }
