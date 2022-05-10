@@ -1,5 +1,7 @@
 import array.FirstMissingInt;
+import array.JumpGame;
 import array.TrappingWater;
+import array.WildcardPattern;
 import graph.ConstructGraph;
 
 public class Main {
@@ -29,18 +31,11 @@ public class Main {
     public static void main(String[] args) {
         Main m = new Main();
 
-//        ConstructGraph c = new ConstructGraph();
-//        ConstructGraph.Graph graph = c.createDirectedGraph();
-//
-//        ConstructGraph.Vertex root = c.createDirectedGraph().getVertexByLabel("a");
-//
-//       // c.bfs(root, graph);
-//        c.dfs(root, graph);
+        JumpGame j = new JumpGame();
 
-        TrappingWater t = new TrappingWater();
-        int [] nums = {4,2,0,3,2,5};
-        System.out.println(t.trap(nums));
-z
+
+        System.out.println(j.canJump(new int[]{3,2,1,0,4}));
+
     }
 
 
