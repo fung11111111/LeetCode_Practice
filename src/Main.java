@@ -27,9 +27,8 @@ public class Main {
 
     public static void main(String[] args) {
         Main m = new Main();
-        RotateImge r= new RotateImge();
-        int [][] matrix = {{1,2,3},{4,5,6}, {7,8,9}};
-        r.rotate(matrix);
+        FirstAndLastPosition p = new FirstAndLastPosition();
+        p.searchRange(new int[]{1}, 1);
 
 
 
