@@ -1,7 +1,4 @@
-import array.FirstMissingInt;
-import array.JumpGame;
-import array.TrappingWater;
-import array.WildcardPattern;
+import array.*;
 import graph.ConstructGraph;
 
 public class Main {
@@ -30,11 +27,11 @@ public class Main {
 
     public static void main(String[] args) {
         Main m = new Main();
+        RotateImge r= new RotateImge();
+        int [][] matrix = {{1,2,3},{4,5,6}, {7,8,9}};
+        r.rotate(matrix);
 
-        JumpGame j = new JumpGame();
 
-
-        System.out.println(j.canJump(new int[]{3,2,1,0,4}));
 
     }
 

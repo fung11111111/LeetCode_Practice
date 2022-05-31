@@ -2,6 +2,7 @@ package array;
 
 public class JumpGame {
     //greedy algo
+    //leetcode 55
     public boolean canJump(int[] nums) {
 
         int finalIdx = nums[0];
