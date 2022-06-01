@@ -28,7 +28,8 @@ public class Main {
     public static void main(String[] args) {
         Main m = new Main();
         FirstAndLastPosition p = new FirstAndLastPosition();
-        p.searchRange(new int[]{1}, 1);
+        System.out.println(p.searchRange(new int[]{5,7,7,8,8,10}, 8)[0]);
+        System.out.println(p.searchRange(new int[]{5,7,7,8,8,10}, 8)[1]);
 
 
 

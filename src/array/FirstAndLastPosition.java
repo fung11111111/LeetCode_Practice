@@ -6,69 +6,44 @@ import java.util.Arrays;
 //todo can use binary search
 public class FirstAndLastPosition {
     public int[] searchRange(int[] nums, int target) {
-        int[] result = new int[]{-99,-99};
+        int[] result = new int[]{-99, -99};
 
         if (nums.length == 0) {
             return new int[]{-1, -1};
         }
-        getIdx(nums, target, result, 0);
-        for (int i = 0; i < result.length; i++) {
-            System.out.println(result[i]);
+
+        if(nums.length == 1){
+            return nums[0] == target ? new int[]{0,0} : new int[]{-1,-1};
         }
-        return result;
+
+        int left = 0;
+        int right = nums.length - 1;
+        int startIdx = -1;
+        int endIdx = -1;
+
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            if (nums[middle] == target) {
+                startIdx = middle;
+                endIdx = middle;
+                System.out.println(startIdx);
+                while (startIdx >0 && nums[startIdx - 1] == target) {
+                    startIdx--;
+                }
+                while (endIdx < nums.length-1 && nums[endIdx + 1] == target) {
+                    endIdx++;
+                }
+                return new int[]{startIdx, endIdx};
+            } else if (nums[middle] > target) {
+                right = middle -1;
+            } else {
+                left = middle +1;
+            }
+
+        }
+        return new int[]{startIdx, endIdx};
     }
 
-
-    public void getIdx(int[] nums, int target, int result[], int startIdx) {
-        int middleIdx = (startIdx + nums.length) / 2;
-
-        if (target > nums[middleIdx] && middleIdx < nums.length - 1) {
-            getIdx(nums, target, result, middleIdx);
-        }
-        System.out.println(middleIdx);
-        int startPosition = -1;
-        int endPosition = -1;
-        if (target < nums[middleIdx]) {
-            System.out.println(middleIdx);
-            for (int i = startIdx; i <= middleIdx; i++) {
-                if (nums[i] == target) {
-                    if (startPosition == -1) {
-                        startPosition = i;
-                    }
-                    if (startPosition != -1) {
-                        endPosition = i;
-                    }
-                }
-            }
-            result[0] = startPosition;
-            result[1] = endPosition;
-        }
-        if (target == nums[middleIdx]) {
-            System.out.println("start: " + startIdx);
-            System.out.println("middle: " + middleIdx);
-            for (int i = startIdx; i < nums.length; i++) {
-                if (nums[i] == target) {
-                    if (startPosition == -1) {
-                        System.out.println("get Start" + i);
-                        startPosition = i;
-
-                    }
-                    if (startPosition != -1) {
-                        System.out.println("get End" + i);
-                        endPosition = i;
-                    }
-                }
-            }
-            result[0] = startPosition;
-            result[1] = endPosition;
-        }
-        if (result[0] == -99) {
-            result[0] = -1;
-            result[1] = -1;
-        }
-
-
-    }
 
     //binary search solution
 //    public int[] searchRange(int[] nums, int target) {
