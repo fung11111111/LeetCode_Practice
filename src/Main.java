@@ -27,9 +27,14 @@ public class Main {
 
     public static void main(String[] args) {
         Main m = new Main();
-        FirstAndLastPosition p = new FirstAndLastPosition();
-        System.out.println(p.searchRange(new int[]{5,7,7,8,8,10}, 8)[0]);
-        System.out.println(p.searchRange(new int[]{5,7,7,8,8,10}, 8)[1]);
+        SearchInRotatedArray p = new SearchInRotatedArray();
+        System.out.println(p.search(new int[]{4,5,6,7,0,1,2}, 5));
+//        System.out.println(p.searchRange(new int[]{5,7,7,8,8,10}, 8)[1]);
+
+
+
+
+
 
 
 
