@@ -1,6 +1,8 @@
 import array.*;
 import graph.ConstructGraph;
 
+import java.util.List;
+
 public class Main {
     /**
      * Definition for singly-linked list.
@@ -27,8 +29,16 @@ public class Main {
 
     public static void main(String[] args) {
         Main m = new Main();
-        SearchInRotatedArray p = new SearchInRotatedArray();
-        System.out.println(p.search(new int[]{4,5,6,7,0,1,2}, 5));
+        GroupAnagrams p = new GroupAnagrams();
+        List<List<String>> res = p.groupAnagrams(new String[]{"eat","tea","tan","ate","nat","bat"});
+        for(List<String> k: res){
+            System.out.println(k.size());
+            for(String tmp: k){
+                System.out.print(tmp + " ");
+            }
+            System.out.println();
+
+        }
 //        System.out.println(p.searchRange(new int[]{5,7,7,8,8,10}, 8)[1]);
 
 
