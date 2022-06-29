@@ -1,6 +1,8 @@
 package array;
 
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 //leetCode 3
 public class LongestSubstringWithoutRepeating {
@@ -29,5 +31,22 @@ public class LongestSubstringWithoutRepeating {
 
 
         return longestStack.size();
+    }
+
+    public int lengthOfLongestSubstring2(String s){
+        Set<Character> characterSet = new HashSet<>();
+        int idx = 0;
+        int max = 0;
+        for(int i =0; i<s.length();i++){
+            char c = s.charAt(i);
+            while(characterSet.contains(c)){
+                characterSet.remove(s.charAt(idx++));
+            }
+            characterSet.add(c);
+            max = Math.max(max, characterSet.size());
+        }
+
+
+        return max;
     }
 }
