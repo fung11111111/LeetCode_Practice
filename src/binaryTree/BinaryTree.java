@@ -1,75 +1,144 @@
 package binaryTree;
 
-import java.util.Map;
+import java.util.*;
 
 public class BinaryTree {
     public class TreeNode {
-        String val;
-        Integer key;
+        Integer val;
         TreeNode left;
         TreeNode right;
+        TreeNode parent;
 
         public TreeNode() {
+        }
+
+        public Integer getVal() {
+            return val;
         }
     }
 
 
-    public TreeNode constructBST(Map<Integer, String> datamap, Integer[] nums) {
+    public TreeNode constructBST() {
         TreeNode root = null;
+        List<Integer> nums = Arrays.asList(Integer.valueOf(5), Integer.valueOf(9), Integer.valueOf(3), Integer.valueOf(1), Integer.valueOf(4), Integer.valueOf(7), Integer.valueOf(8), Integer.valueOf(6));
 
         for (Integer num : nums) {
-            Integer key = num;
-            String val = datamap.get(key);
             TreeNode current = new TreeNode();
-            current.val = val;
-            current.key = key;
+            current.val = num;
             if (root == null) {
                 root = current;
             } else {
-                TreeNode parent = getParentNode(root, key);
-                if (current.key > parent.key) {
-                    parent.right = current;
+                TreeNode parentNode = getParentNode(root, num);
+                current.parent = parentNode;
+                if (current.val <= parentNode.val) {
+                    parentNode.left = current;
                 } else {
-                    parent.left = current;
+                    parentNode.right = current;
+                }
+            }
+
+        }
+
+        return root;
+    }
+
+    //for binary search tree
+    public TreeNode getSuccessor(TreeNode root) {
+        if (root != null && root.right != null) {
+            return getMinNodeFromSubTree(root.right);
+        }
+        return root;
+    }
+
+    public TreeNode getPredecessor(TreeNode root) {
+        if (root != null && root.left != null) {
+            return getMaxNodeFromSubTree(root.left);
+        }
+        return root;
+    }
+
+    public TreeNode getMinNodeFromSubTree(TreeNode node) {
+        if (node != null) {
+            TreeNode current = node;
+            while (current.left != null) {
+                current = current.left;
+            }
+            return current;
+        }
+        return null;
+    }
+
+    public TreeNode getMaxNodeFromSubTree(TreeNode node) {
+        if (node != null) {
+            TreeNode current = node;
+            while (current.right != null) {
+                current = current.right;
+            }
+            return current;
+        }
+        return null;
+    }
+
+    public TreeNode getParentNode(TreeNode root, Integer val) {
+        TreeNode node = root;
+        if (val < root.val) {
+            return root.left != null ? getParentNode(node.left, val) : node;
+        } else {
+            return root.right != null ? getParentNode(node.right, val) : node;
+        }
+
+    }
+
+    public void printNodePreOrder(TreeNode root) {
+        TreeNode current = root;
+        if (current != null) {
+            System.out.println(current.val);
+            printNodePreOrder(root.left);
+            printNodePreOrder(root.right);
+        }
+    }
+
+    public void printNodeInOrder(TreeNode root) {
+        //ascending order
+        TreeNode current = root;
+        if (current != null) {
+            printNodeInOrder(root.left);
+            System.out.println(current.val);
+            printNodeInOrder(root.right);
+        }
+    }
+
+    public void printNodePostOrder(TreeNode root) {
+        TreeNode current = root;
+        if (current != null) {
+            printNodePostOrder(root.left);
+            printNodePostOrder(root.right);
+            System.out.println(current.val);
+        }
+    }
+
+    public void printNodeLevelOrder(TreeNode root) {
+        if (root != null) {
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()) {
+                TreeNode n = queue.poll();
+                TreeNode left = n.left;
+                TreeNode right = n.right;
+                if (n != null) {
+                    System.out.println(n.val);
+                }
+                if (left != null) {
+                    queue.add(left);
+                }
+                if (right != null) {
+                    queue.add(right);
                 }
             }
 
 
         }
-
-
-        return root;
     }
 
-    public TreeNode getParentNode(TreeNode root, Integer key) {
-        TreeNode node = root;
-        if (key < root.key) {
-            return root.left != null ? getParentNode(node.left, key) : node;
-        } else {
-            return root.right != null ? getParentNode(node.right, key) : node;
-        }
-    }
 
-    public TreeNode searchNode(TreeNode root, Integer key) {
-        TreeNode node = root;
-        if (node.key == key) return node;
-        if (key < node.key) {
-            return node.left != null ? searchNode(node.left, key) : node;
-        } else {
-            return node.right != null ? searchNode(node.right, key) : node;
-        }
-    }
-
-    public void insertNode(TreeNode root, Integer key, String val) {
-        TreeNode parent = getParentNode(root, key);
-        TreeNode current = new TreeNode();
-        current.val = val;
-        current.key = key;
-        if (parent != null && key < parent.key) {
-            parent.left = current;
-        } else {
-            parent.right = current;
-        }
-
-    }
 }

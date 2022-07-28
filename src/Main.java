@@ -1,7 +1,19 @@
 import array.*;
-import graph.ConstructGraph;
+import desingPattern.BehavioralPattern.ChainResponsibilityPattern;
+import desingPattern.BehavioralPattern.CommandPattern;
+import desingPattern.BehavioralPattern.ObserverPattern;
+import desingPattern.creationalPattern.BuilderDesignPattern;
+import desingPattern.structuralPattern.AdapterPattern;
+import desingPattern.structuralPattern.DecoratorPattern;
+import desingPattern.structuralPattern.FacadePattern;
+import maping.MapTutorial;
+import oopConcept.Abstraction;
+import oopConcept.Polymorphism;
+import stream.StreamTest;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Main {
     /**
@@ -16,36 +28,12 @@ public class Main {
      */
 
 
-    public class TreeNode {
-        String val;
-        Integer key;
-        TreeNode left;
-        TreeNode right;
-
-        public TreeNode() {
-        }
-    }
-
 
     public static void main(String[] args) {
         Main m = new Main();
-        GroupAnagrams p = new GroupAnagrams();
-        List<List<String>> res = p.groupAnagrams(new String[]{"eat","tea","tan","ate","nat","bat"});
-        for(List<String> k: res){
-            System.out.println(k.size());
-            for(String tmp: k){
-                System.out.print(tmp + " ");
-            }
-            System.out.println();
 
-        }
-//        System.out.println(p.searchRange(new int[]{5,7,7,8,8,10}, 8)[1]);
-
-
-
-
-
-
+        ThreeSumClosest c = new ThreeSumClosest();
+        c.client();
 
 
     }

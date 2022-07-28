@@ -1,2 +1,4 @@
-package oopConcept;public class Encapsulation {
+package oopConcept;
+
+public class Encapsulation {
 }
