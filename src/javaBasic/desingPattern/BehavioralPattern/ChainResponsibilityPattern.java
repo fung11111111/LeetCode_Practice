@@ -1,4 +1,4 @@
-package desingPattern.BehavioralPattern;
+package javaBasic.desingPattern.BehavioralPattern;
 
 public class ChainResponsibilityPattern {
 

@@ -1,4 +1,4 @@
-package desingPattern.creationalPattern;
+package javaBasic.desingPattern.creationalPattern;
 
 public class FactoryPattern {
     abstract class Plan {

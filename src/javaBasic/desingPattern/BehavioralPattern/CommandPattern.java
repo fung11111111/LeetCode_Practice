@@ -1,6 +1,4 @@
-package desingPattern.BehavioralPattern;
-
-import javax.print.Doc;
+package javaBasic.desingPattern.BehavioralPattern;
 
 public class CommandPattern {
 

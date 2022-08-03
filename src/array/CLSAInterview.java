@@ -1,7 +1,5 @@
 package array;
 
-import desingPattern.creationalPattern.SingletonPattern;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

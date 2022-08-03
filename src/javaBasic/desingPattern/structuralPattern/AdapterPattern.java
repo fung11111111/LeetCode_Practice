@@ -1,6 +1,4 @@
-package desingPattern.structuralPattern;
-
-import java.util.concurrent.Callable;
+package javaBasic.desingPattern.structuralPattern;
 
 public class AdapterPattern {
 

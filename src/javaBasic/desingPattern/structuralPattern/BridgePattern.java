@@ -1,4 +1,4 @@
-package desingPattern.structuralPattern;
+package javaBasic.desingPattern.structuralPattern;
 
 public class BridgePattern {
 

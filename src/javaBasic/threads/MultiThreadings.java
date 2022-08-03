@@ -1,4 +1,4 @@
-package threads;
+package javaBasic.threads;
 
 public class MultiThreadings extends Thread{
 

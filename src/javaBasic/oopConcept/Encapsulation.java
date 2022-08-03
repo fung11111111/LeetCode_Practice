@@ -1,4 +1,4 @@
-package oopConcept;
+package javaBasic.oopConcept;
 
 public class Encapsulation {
 }

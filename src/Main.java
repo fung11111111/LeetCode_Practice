@@ -1,19 +1,7 @@
-import array.*;
-import desingPattern.BehavioralPattern.ChainResponsibilityPattern;
-import desingPattern.BehavioralPattern.CommandPattern;
-import desingPattern.BehavioralPattern.ObserverPattern;
-import desingPattern.creationalPattern.BuilderDesignPattern;
-import desingPattern.structuralPattern.AdapterPattern;
-import desingPattern.structuralPattern.DecoratorPattern;
-import desingPattern.structuralPattern.FacadePattern;
-import maping.MapTutorial;
-import oopConcept.Abstraction;
-import oopConcept.Polymorphism;
-import stream.StreamTest;
+import javaBasic.EqualHashCode;
+import javaBasic.ExceptionHandling;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.*;
 
 public class Main {
     /**
@@ -27,13 +15,17 @@ public class Main {
      * }
      */
 
+    public static void appendString(String a){
+        a = a + " World!";
+    }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Main m = new Main();
 
-        RemoveDuplicates c = new RemoveDuplicates();
-        c.client();
+        EqualHashCode e = new EqualHashCode();
+        e.client();
+
 
 
     }
