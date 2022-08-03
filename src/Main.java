@@ -1,3 +1,4 @@
+import array.MergeSortedElement;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
 
@@ -23,7 +24,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Main m = new Main();
 
-        EqualHashCode e = new EqualHashCode();
+        MergeSortedElement e = new MergeSortedElement();
         e.client();
 
 
