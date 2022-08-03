@@ -32,7 +32,7 @@ public class Main {
     public static void main(String[] args) {
         Main m = new Main();
 
-        ThreeSumClosest c = new ThreeSumClosest();
+        RemoveDuplicates c = new RemoveDuplicates();
         c.client();
 
 

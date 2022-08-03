@@ -50,15 +50,18 @@ public class Abstraction {
     public void client(){
      //   Work a = new Work();
         //cannot instantiate the abstract class
+        
 
         Work w = new Work1();
         Work w2 = new Work2();
+        SendEmail s = new Work1();
 
         w.sayGoodBye();
         w.saySomething();
         w2.sayGoodBye();
         w2.saySomething();
         w2.sendEmail();
+        s.sendEmail();
 
     }
 }
