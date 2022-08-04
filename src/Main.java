@@ -1,8 +1,10 @@
 import array.MergeSortedElement;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
+import linkedList.RemoveNthNodeFromList;
 
 import java.io.*;
+import java.util.logging.Logger;
 
 public class Main {
     /**
@@ -20,12 +22,14 @@ public class Main {
         a = a + " World!";
     }
 
-
+    private static void test() {
+        int[] a = {1, 2, 4};
+        System.out.println(a[3]);
+    }
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-
-        MergeSortedElement e = new MergeSortedElement();
-        e.client();
+        RemoveNthNodeFromList n = new RemoveNthNodeFromList();
+        n.client();
 
 
 
