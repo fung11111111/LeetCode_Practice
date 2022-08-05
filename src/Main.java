@@ -1,6 +1,8 @@
 import array.MergeSortedElement;
+import array.NextPermutation;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
+import javaBasic.StaticAndFinal;
 import linkedList.RemoveNthNodeFromList;
 
 import java.io.*;
@@ -18,7 +20,7 @@ public class Main {
      * }
      */
 
-    public static void appendString(String a){
+    public static void appendString(String a) {
         a = a + " World!";
     }
 
@@ -26,10 +28,13 @@ public class Main {
         int[] a = {1, 2, 4};
         System.out.println(a[3]);
     }
+
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        RemoveNthNodeFromList n = new RemoveNthNodeFromList();
-        n.client();
+        StaticAndFinal.addCounterAndPrint();
+        StaticAndFinal.addCounterAndPrint();
+        StaticAndFinal.addCounterAndPrint();
+        StaticAndFinal.addCounterAndPrint();
 
 
 
