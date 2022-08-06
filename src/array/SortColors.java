@@ -42,6 +42,32 @@ public class SortColors {
             }
         }
 
+        Arrays.stream(nums)
+                .forEach(System.out::println);
+
+    }
+
+    public void sortColorsThreePointer(int[] nums) {
+        if (nums.length == 1) return;
+
+        int  start = 0, end = nums.length - 1, i = 0;
+
+        while( start < end && i <= end ) {
+            if (nums[i] == 0) {
+                nums[i] = nums[start];
+                nums[start] = 0;
+                i++; start++;
+            } else if (nums[i] == 2) {
+                nums[i] = nums[end];
+                nums[end] = 2;
+                end--;
+            } else {
+                i++;
+            }
+        }
+        Arrays.stream(nums)
+                .forEach(System.out::println);
+
     }
 
     public void client() {
