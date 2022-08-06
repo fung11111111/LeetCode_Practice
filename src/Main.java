@@ -1,5 +1,7 @@
 import array.MergeSortedElement;
 import array.NextPermutation;
+import array.RemoveDuplicatedFromSortedArray;
+import array.SortColors;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
 import javaBasic.StaticAndFinal;
@@ -31,10 +33,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        StaticAndFinal.addCounterAndPrint();
-        StaticAndFinal.addCounterAndPrint();
-        StaticAndFinal.addCounterAndPrint();
-        StaticAndFinal.addCounterAndPrint();
+        SortColors n = new SortColors();
+        n.client();
 
 
 
