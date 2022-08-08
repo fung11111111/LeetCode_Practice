@@ -5,6 +5,7 @@ import array.SortColors;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
 import javaBasic.StaticAndFinal;
+import linkedList.RemoveDuplicatedFromSortList;
 import linkedList.RemoveNthNodeFromList;
 
 import java.io.*;
@@ -33,7 +34,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        SortColors n = new SortColors();
+        RemoveDuplicatedFromSortList n = new RemoveDuplicatedFromSortList();
         n.client();
 
 
