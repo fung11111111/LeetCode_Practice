@@ -1,7 +1,4 @@
-import array.MergeSortedElement;
-import array.NextPermutation;
-import array.RemoveDuplicatedFromSortedArray;
-import array.SortColors;
+import array.*;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
 import javaBasic.StaticAndFinal;
@@ -34,7 +31,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        RemoveDuplicatedFromSortList n = new RemoveDuplicatedFromSortList();
+        SetMatrixZero n = new SetMatrixZero();
         n.client();
 
 
