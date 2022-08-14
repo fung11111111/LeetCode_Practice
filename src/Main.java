@@ -2,6 +2,8 @@ import array.*;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
 import javaBasic.StaticAndFinal;
+import javaBasic.threads.CompletableFutureThread;
+import javaBasic.threads.MultiThreadings;
 import linkedList.RemoveDuplicatedFromSortList;
 import linkedList.RemoveNthNodeFromList;
 
@@ -31,7 +33,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        SetMatrixZero n = new SetMatrixZero();
+        CompletableFutureThread n = new CompletableFutureThread();
         n.client();
 
 
