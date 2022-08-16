@@ -2,6 +2,7 @@ import array.*;
 import javaBasic.EqualHashCode;
 import javaBasic.ExceptionHandling;
 import javaBasic.StaticAndFinal;
+import javaBasic.generics.GenericsExample;
 import javaBasic.threads.CompletableFutureThread;
 import javaBasic.threads.MultiThreadings;
 import linkedList.RemoveDuplicatedFromSortList;
@@ -33,7 +34,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        CompletableFutureThread n = new CompletableFutureThread();
+        BestTimeSellingStock n = new BestTimeSellingStock();
         n.client();
 
 
