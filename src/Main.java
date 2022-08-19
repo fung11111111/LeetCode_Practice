@@ -7,6 +7,7 @@ import javaBasic.threads.CompletableFutureThread;
 import javaBasic.threads.MultiThreadings;
 import linkedList.RemoveDuplicatedFromSortList;
 import linkedList.RemoveNthNodeFromList;
+import stream.StreamTest;
 
 import java.io.*;
 import java.util.logging.Logger;
@@ -34,7 +35,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        BestTimeSellingStock n = new BestTimeSellingStock();
+        StreamTest n = new StreamTest();
         n.client();
 
 
