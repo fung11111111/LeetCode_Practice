@@ -1,9 +1,8 @@
-package stream;
+package javaBasic.stream;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamTest {
@@ -85,6 +84,14 @@ public class StreamTest {
             System.out.println();
         });
 
+        System.out.println("Filtering by gender");
+        //peek vs foreach
+        // peek is Intermediate and is lazy, need terminal operation
+        Stream<Employee> employeeStream = employees.stream()
+                .filter(employee -> employee.gender.equals("M"))
+                .peek(System.out::println)
+                ;
+
 
         System.out.println("AtomicInteger");
         AtomicInteger totalAge = new AtomicInteger(0);
@@ -92,10 +99,7 @@ public class StreamTest {
                 .forEach(employee -> totalAge.addAndGet(employee.getAge()));
         System.out.println(totalAge);
 
-
-
-
-
+        System.out.println(employeeStream.count());
 
     }
 }

@@ -1,16 +1,8 @@
-import array.*;
-import javaBasic.EqualHashCode;
-import javaBasic.ExceptionHandling;
-import javaBasic.StaticAndFinal;
-import javaBasic.generics.GenericsExample;
-import javaBasic.threads.CompletableFutureThread;
-import javaBasic.threads.MultiThreadings;
-import linkedList.RemoveDuplicatedFromSortList;
-import linkedList.RemoveNthNodeFromList;
-import stream.StreamTest;
+import array.JumpGame2;
+import array.RemoveElement;
+import javaBasic.stream.StreamTest;
 
 import java.io.*;
-import java.util.logging.Logger;
 
 public class Main {
     /**
@@ -35,8 +27,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        StreamTest n = new StreamTest();
+        RemoveElement n = new RemoveElement();
         n.client();
+      //  int interval[] = new int[2];
+
 
 
 
