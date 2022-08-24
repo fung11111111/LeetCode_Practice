@@ -1,5 +1,6 @@
 import array.JumpGame2;
 import array.RemoveElement;
+import javaBasic.OptionalClass;
 import javaBasic.stream.StreamTest;
 
 import java.io.*;
@@ -27,7 +28,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Main m = new Main();
-        RemoveElement n = new RemoveElement();
+        OptionalClass n = new OptionalClass();
         n.client();
       //  int interval[] = new int[2];
 
