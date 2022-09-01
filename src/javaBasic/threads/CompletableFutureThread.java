@@ -50,6 +50,7 @@ public class CompletableFutureThread {
             System.out.println("I am main - " + Thread.currentThread().getName());
 
             completableFuture.join();
+
             //System.out.println("value - " + value);
         }
     }

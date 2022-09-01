@@ -1,6 +1,11 @@
 import array.JumpGame2;
 import array.RemoveElement;
+import backTracking.CombinationSum;
+import javaBasic.DateAndTime;
+import javaBasic.IO;
 import javaBasic.OptionalClass;
+import javaBasic.Serialization;
+import javaBasic.generics.GenericsExample;
 import javaBasic.stream.StreamTest;
 
 import java.io.*;
@@ -26,13 +31,32 @@ public class Main {
         System.out.println(a[3]);
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         Main m = new Main();
-        OptionalClass n = new OptionalClass();
-        n.client();
-      //  int interval[] = new int[2];
 
 
+        CombinationSum g = new CombinationSum();
+        g.client();
+
+        //  int interval[] = new int[2];
+
+    }
+
+    public static void client() throws IOException, ClassNotFoundException {
+
+        Serialization p = new Serialization("Tom", 20);
+        FileOutputStream f = new FileOutputStream("test.txt");
+
+        ObjectOutputStream o = new ObjectOutputStream(f);
+        o.writeObject(p);
+        o.flush();
+        o.close();
+
+        FileInputStream i = new FileInputStream("test.txt");
+        ObjectInputStream oi = new ObjectInputStream(i);
+        Serialization newP = (Serialization) oi.readObject();
+        oi.close();
+        System.out.println("name" + newP.getName());
 
 
     }

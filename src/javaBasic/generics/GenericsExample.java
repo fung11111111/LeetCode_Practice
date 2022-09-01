@@ -1,9 +1,10 @@
 package javaBasic.generics;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+// a class help to perform different behavior according to the objects
+// need to know what kind of objects will be processed
 public class GenericsExample {
 
     //type param for generic class
@@ -29,6 +30,10 @@ public class GenericsExample {
         public Double getSpeed() {
             return speed;
         }
+
+        public void printTransportation(){
+            System.out.println("I am transportation");
+        }
     }
 
     class Ship extends Transportation {
@@ -41,6 +46,10 @@ public class GenericsExample {
             return "Ship{" +
                     "speed=" + getSpeed() +
                     '}';
+        }
+
+        public void printMyself(){
+            System.out.println("i am a ship");
         }
     }
 
@@ -55,9 +64,14 @@ public class GenericsExample {
                     "speed=" + getSpeed() +
                     '}';
         }
+
+        public void printMyself(){
+            System.out.println("i am a ship");
+        }
     }
 
-    class PrinterForTransport <T extends Transportation>{
+
+    class PrinterForTransport<T extends Transportation> {
         T thingToPrint;
 
         public PrinterForTransport(T thingToPrint) {
@@ -65,8 +79,13 @@ public class GenericsExample {
         }
 
         public void print() {
-          System.out.println(thingToPrint.getSpeed());
+            System.out.println(thingToPrint.getSpeed());
+            thingToPrint.printTransportation();
         }
+    }
+
+    public <T extends Transportation> String convertToGeneric(T a) {
+        return "speed - " + a.getSpeed();
     }
 
     public void client() {
@@ -82,22 +101,31 @@ public class GenericsExample {
         PrinterForTransport<Transportation> s = new PrinterForTransport<Transportation>(new Ship(3.0));
         s.print();
 
+
         shout("String");
         shout(123);
         shout(2.0);
 
-        List<Car> cars = new ArrayList<>();
-        printList(cars);
-        List<Ship> ships = new ArrayList<>();
-        printList(ships);
+
+        Car car = new Car(20.89);
+        Ship ship = new Ship(30.0);
+
+        System.out.println(convertToGeneric(car));
+        System.out.println(convertToGeneric(ship));
+        List<PrinterForTransport> eList = new ArrayList<>();
+        eList.add(c);
+        eList.add(s);
+        printList(eList);
+
     }
 
-    public static <T> void shout(T thingToShout){
+    public static <T> void shout(T thingToShout) {
         System.out.println(thingToShout);
     }
 
     //wildcard
-    public static void printList(List<? extends Transportation> thingToShout){
-        System.out.println(thingToShout);
+    public static void printList(List<? extends PrinterForTransport> thingToShouts) {
+        thingToShouts.stream()
+                .forEach( a -> a.print());
     }
 }
