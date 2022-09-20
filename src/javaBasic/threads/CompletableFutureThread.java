@@ -4,6 +4,11 @@ import java.util.concurrent.*;
 import java.util.function.Supplier;
 
 public class CompletableFutureThread {
+    //completablefuture vs executor service
+    //executor service can init the pool size, scheduling...
+    //
+
+
 
     public class RunAsyncExample {
         public void delay(int seconds) {

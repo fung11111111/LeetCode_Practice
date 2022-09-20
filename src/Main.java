@@ -1,12 +1,10 @@
 import array.JumpGame2;
 import array.RemoveElement;
 import backTracking.CombinationSum;
-import javaBasic.DateAndTime;
-import javaBasic.IO;
-import javaBasic.OptionalClass;
-import javaBasic.Serialization;
+import javaBasic.*;
 import javaBasic.generics.GenericsExample;
 import javaBasic.stream.StreamTest;
+import javaBasic.threads.MultiThreadings;
 
 import java.io.*;
 
@@ -31,12 +29,12 @@ public class Main {
         System.out.println(a[3]);
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Main m = new Main();
 
 
-        CombinationSum g = new CombinationSum();
-        g.client();
+        FunctionalInter g = new FunctionalInter();
+        g.client(); ;
 
         //  int interval[] = new int[2];
 
