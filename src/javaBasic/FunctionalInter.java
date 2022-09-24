@@ -11,6 +11,8 @@ public class FunctionalInter {
         void readBook();
     }
 
+
+
     class Student implements Read {
 
         @Override

@@ -1,4 +1,5 @@
 import array.JumpGame2;
+import array.MultiplyString;
 import array.RemoveElement;
 import backTracking.CombinationSum;
 import javaBasic.*;
@@ -33,7 +34,7 @@ public class Main {
         Main m = new Main();
 
 
-        FunctionalInter g = new FunctionalInter();
+        MultiplyString g = new MultiplyString();
         g.client(); ;
 
         //  int interval[] = new int[2];
