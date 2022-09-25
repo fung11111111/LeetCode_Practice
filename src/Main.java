@@ -8,6 +8,7 @@ import javaBasic.stream.StreamTest;
 import javaBasic.threads.MultiThreadings;
 
 import java.io.*;
+import java.lang.Enum;
 
 public class Main {
     /**
@@ -34,7 +35,7 @@ public class Main {
         Main m = new Main();
 
 
-        MultiplyString g = new MultiplyString();
+        EnumTutorial g = new EnumTutorial();
         g.client(); ;
 
         //  int interval[] = new int[2];
