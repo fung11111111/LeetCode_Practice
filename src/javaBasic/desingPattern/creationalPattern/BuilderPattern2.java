@@ -199,6 +199,17 @@ public class BuilderPattern2 {
     }
 
     class Director {
+//can use singleton for this class, single is not allowed in inner class
+//        private static Director director;
+//        public static getInstance(){
+//            if(this.director != null){
+//                return this.director;
+//            }else {
+//                this.director = new Director();
+//                return this.director;
+//            }
+//        }
+
         public void constructHondaEx1(Builder builder) {
             builder.setBrand("Honda")
                     .setColor("yellow")
@@ -237,7 +248,7 @@ public class BuilderPattern2 {
         }
 
 
-        public void constructSchema(Builder builder) {
+        public void constructLamboSchema(Builder builder) {
             builder.setBrand("Lambo")
                     .setColor("red")
                     .setName("adventure");
@@ -262,7 +273,7 @@ public class BuilderPattern2 {
         CarBuilder carBuilder = new CarBuilder();
         CarSchemaBuilder carSchemaBuilder = new CarSchemaBuilder();
         d.constructLambo(carBuilder);
-        d.constructHondaEx1(carSchemaBuilder);
+        d.constructToyotaB2Schema(carSchemaBuilder);
         Car c = carBuilder.getProduct();
         System.out.println(c.toString());
         System.out.println(carSchemaBuilder.getProduct().toString());
