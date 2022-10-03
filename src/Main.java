@@ -3,24 +3,16 @@ import array.MultiplyString;
 import array.RemoveElement;
 import backTracking.CombinationSum;
 import javaBasic.*;
+import javaBasic.desingPattern.creationalPattern.BuilderPattern2;
 import javaBasic.generics.GenericsExample;
 import javaBasic.stream.StreamTest;
+import javaBasic.threads.CompletableFutureThread;
 import javaBasic.threads.MultiThreadings;
 
 import java.io.*;
 import java.lang.Enum;
 
 public class Main {
-    /**
-     * Definition for singly-linked list.
-     * public class array.ListNode {
-     * int val;
-     * array.ListNode next;
-     * array.ListNode() {}
-     * array.ListNode(int val) { this.val = val; }
-     * array.ListNode(int val, array.ListNode next) { this.val = val; this.next = next; }
-     * }
-     */
 
     public static void appendString(String a) {
         a = a + " World!";
@@ -32,10 +24,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-        Main m = new Main();
 
-
-        EnumTutorial g = new EnumTutorial();
+        BuilderPattern2 g = new BuilderPattern2();
         g.client(); ;
 
         //  int interval[] = new int[2];

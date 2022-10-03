@@ -58,6 +58,11 @@ public class FunctionalInter {
         printWithConsumer(con, r);
 
 
+        //currying function
+        Function<Integer, Function<Integer, Function<Integer, Consumer<String>>>> a = x->y->z -> str -> {
+            System.out.println("x " + x + "y " + y +"z " + z +"str " + str);
+        };
+        a.apply(1).apply(2).apply(3).accept("chain");
 
 
 

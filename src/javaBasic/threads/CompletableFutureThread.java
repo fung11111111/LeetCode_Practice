@@ -1,13 +1,16 @@
 package javaBasic.threads;
 
+import kotlin.Pair;
+
+import javax.imageio.plugins.tiff.TIFFImageReadParam;
 import java.util.concurrent.*;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class CompletableFutureThread {
     //completablefuture vs executor service
     //executor service can init the pool size, scheduling...
     //
-
 
 
     public class RunAsyncExample {
@@ -160,12 +163,24 @@ public class CompletableFutureThread {
             });
         }
 
+        public CompletableFuture<String> getTarget() {
+            return CompletableFuture.supplyAsync(() -> {
+                delay(1);
+                System.out.println("getTarget() - " + Thread.currentThread().getName());
+                return "David Tommy";
+            });
+        }
+
         public void mainFunc() {
             long startTime = System.currentTimeMillis();
+
             CompletableFuture<Void> completableFuture = getEmail().thenCombine(getReport(), (e, r) -> {
-                System.out.println("Sending report to " + e + " with report " + r);
+                System.out.println(String.format("send to {%s} with report {%s}", e, r));
                 return null;
             });
+
+
+
 
             System.out.println("I am main - " + Thread.currentThread().getName());
             delay(1);
@@ -210,11 +225,11 @@ public class CompletableFutureThread {
         }
 
         public void mainFunc() {
-//            CompletableFuture<Void> completableFuture = CompletableFuture.allOf(future1(), future2(), future3());
-//            completableFuture.join();
+            CompletableFuture<Void> completableFuture = CompletableFuture.allOf(future1(), future2(), future3());
+            completableFuture.join();
 
-            CompletableFuture<Object> completableFuture2 = CompletableFuture.anyOf(future1(), future2(), future3());
-            System.out.println(completableFuture2.join());
+//            CompletableFuture<Object> completableFuture2 = CompletableFuture.anyOf(future1(), future2(), future3());
+//            System.out.println(completableFuture2.join());
 
         }
     }
@@ -258,13 +273,13 @@ public class CompletableFutureThread {
 //        ComposeExample composeExample = new ComposeExample();
 //        composeExample.mainFunc();
 
-//        CombineExample combineExample = new CombineExample();
-//        combineExample.mainFunc();
-
+        CombineExample combineExample = new CombineExample();
+        combineExample.mainFunc();
+//
 //        AnyAllofExample anyAllofExample = new AnyAllofExample();
 //        anyAllofExample.mainFunc();
 
-        ExceptionHandlingExample exceptionHandlingExample = new ExceptionHandlingExample();
-        exceptionHandlingExample.mainFunc();
+//        ExceptionHandlingExample exceptionHandlingExample = new ExceptionHandlingExample();
+//        exceptionHandlingExample.mainFunc();
     }
 }
