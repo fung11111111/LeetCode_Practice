@@ -3,6 +3,7 @@ import array.MultiplyString;
 import array.RemoveElement;
 import backTracking.CombinationSum;
 import javaBasic.*;
+import javaBasic.desingPattern.BehavioralPattern.CommandPattern;
 import javaBasic.desingPattern.creationalPattern.BuilderPattern2;
 import javaBasic.generics.GenericsExample;
 import javaBasic.stream.StreamTest;
@@ -25,7 +26,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
-        BuilderPattern2 g = new BuilderPattern2();
+        CommandPattern g = new CommandPattern();
         g.client(); ;
 
         //  int interval[] = new int[2];

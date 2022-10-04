@@ -1,97 +1,157 @@
 package javaBasic.desingPattern.BehavioralPattern;
 
+import kotlin.reflect.KFunction;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
 public class CommandPattern {
 
-    interface ElectronicDevice {
-        public void on();
+    // GUI (controller): receive input and show output
+    // GUI needs to map input and perform different logic according to input
+    // business layer: perform business logic
+    // GUI not need to know which biz layer to map and Command objects server as links to execute related layer
 
-        public void off();
+    static Map<String, BiConsumer<Invoker, Robot>> functionMap = new HashMap<>();
 
-        public void volUp();
-
-        public void volDown();
-
+    {
+        functionMap.put("mf", (invoker, robot) -> invoker.addCommand(new MoveForward(robot)));
+        functionMap.put("mb", (invoker, robot) -> invoker.addCommand(new MoveBackward(robot)));
+        functionMap.put("fu", (invoker, robot) -> invoker.addCommand(new FlyUp(robot)));
+        functionMap.put("fd", (invoker, robot) -> invoker.addCommand(new FlyDown(robot)));
     }
 
-    class Television implements ElectronicDevice {
+    class Robot {
+        private int x;
+        private int y;
 
-        @Override
-        public void on() {
-            System.out.println("On");
+        public Robot() {
+            this.x = 0;
+            this.y = 0;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public void setX(int x) {
+            this.x = x;
+        }
+
+        public int getY() {
+            return y;
+        }
+
+        public void setY(int y) {
+            this.y = y;
         }
 
         @Override
-        public void off() {
-            System.out.println("off");
-        }
-
-        @Override
-        public void volUp() {
-            System.out.println("volUp");
-        }
-
-        @Override
-        public void volDown() {
-            System.out.println("volDown");
+        public String toString() {
+            return "Robot{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
         }
     }
 
-    interface Command {
-        public void execute();
+    abstract class Command {
+        private Robot robot;
+
+        public Command(Robot robot) {
+            this.robot = robot;
+        }
+
+        public Robot getRobot() {
+            return robot;
+        }
+
+        abstract void execute();
     }
 
-    class TurnTvOn implements Command {
-
-        ElectronicDevice electronicDevice;
-
-        public TurnTvOn(ElectronicDevice electronicDevice) {
-            this.electronicDevice = electronicDevice;
+    class MoveForward extends Command {
+        public MoveForward(Robot robot) {
+            super(robot);
         }
 
         @Override
         public void execute() {
-            electronicDevice.on();
+            int currentX = this.getRobot().getX();
+            this.getRobot().setX(++currentX);
         }
+
     }
 
-    class TurnTvOff implements Command {
-        ElectronicDevice electronicDevice;
+    class MoveBackward extends Command {
 
-        public TurnTvOff(ElectronicDevice electronicDevice) {
-            this.electronicDevice = electronicDevice;
+        public MoveBackward(Robot robot) {
+            super(robot);
         }
 
         @Override
-        public void execute() {
-            electronicDevice.off();
-        }
-
-    }
-
-    class DeviceButton {
-        Command theCommand;
-
-        public DeviceButton(Command theCommand) {
-            this.theCommand = theCommand;
-        }
-
-        public void press() {
-            theCommand.execute();
+        void execute() {
+            int currentX = this.getRobot().getX();
+            this.getRobot().setY(--currentX);
         }
     }
 
-    class TvRemote {
-        ElectronicDevice electronicDevice = new Television();
+    class FlyUp extends Command {
+        public FlyUp(Robot robot) {
+            super(robot);
+        }
+
+        @Override
+        void execute() {
+            int currentY = this.getRobot().getY();
+            this.getRobot().setY(++currentY);
+        }
     }
 
-    public void playRemote(){
-        ElectronicDevice electronicDevice = new Television();
+    class FlyDown extends Command {
+        public FlyDown(Robot robot) {
+            super(robot);
+        }
 
-        TurnTvOn onCommand = new TurnTvOn(electronicDevice);
-
-        DeviceButton deviceButton = new DeviceButton(onCommand);
-
-        deviceButton.press();
+        @Override
+        void execute() {
+            int currentY = this.getRobot().getY();
+            this.getRobot().setY(--currentY);
+        }
     }
+
+    public class Invoker {
+        private List<Command> commandList = new ArrayList<>();
+
+        public void addCommand(Command c) {
+            commandList.add(c);
+        }
+
+        public void executeCommands() {
+            for (Command c : commandList) {
+                c.execute();
+            }
+        }
+    }
+
+    public void client() {
+        // httpRequest with list of operation
+        // e.g. mf mf fu fd mf fu fd mb mf
+        List<String> commandsFromRequest = List.of("mf", "mf", "fu", "fd", "mf", "fu", "fu", "mb", "mf");
+        Robot target = new Robot();
+        Invoker invoker = new Invoker();
+        for (String s : commandsFromRequest) {
+            functionMap.get(s).accept(invoker, target);
+        }
+
+        invoker.executeCommands();
+        System.out.println(target.toString());
+
+
+    }
+
 
 }
