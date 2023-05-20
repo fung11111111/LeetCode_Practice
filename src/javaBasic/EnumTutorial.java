@@ -23,6 +23,7 @@ public class EnumTutorial {
 
         private static final Map<Integer, DaysOfTheWeek> map;
 
+        //static block will be called when the class is first loaded in memory
         static {
             map = new HashMap<>();
             Arrays.stream(DaysOfTheWeek.values())

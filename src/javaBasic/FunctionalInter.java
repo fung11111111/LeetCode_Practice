@@ -12,7 +12,6 @@ public class FunctionalInter {
     }
 
 
-
     class Student implements Read {
 
         @Override
@@ -31,7 +30,7 @@ public class FunctionalInter {
         System.out.println(s.get());
     }
 
-    public void printWithConsumer(Consumer c, Read r){
+    public void printWithConsumer(Consumer c, Read r) {
         c.accept(r);
     }
 
@@ -59,12 +58,16 @@ public class FunctionalInter {
 
 
         //currying function
-        Function<Integer, Function<Integer, Function<Integer, Consumer<String>>>> a = x->y->z -> str -> {
-            System.out.println("x " + x + "y " + y +"z " + z +"str " + str);
+        Function<Integer, Function<Integer, Function<Integer, Consumer<String>>>> a = x -> y -> z -> str -> {
+            System.out.println("x " + x + "y " + y + "z " + z + "str " + str);
         };
         a.apply(1).apply(2).apply(3).accept("chain");
 
+        Function<String, String> x = k ->  "hello";
+        System.out.println(x.apply("x"));
 
 
     }
+
+
 }
